@@ -14,7 +14,7 @@
             min-height: 100vh;
             white-space: pre-wrap;
             overflow: hidden;
-            font-size: 18px; /* Increased font size */
+            font-size: 18px;
         }
         
         .content {
@@ -59,11 +59,13 @@
             {text: "\nMy foundation in offensive security means I assess how systems actually fail, ensuring controls are practical.\n", color: "white", delayAfter: 50},
             
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
-            {text: "cat capabilities.txt", color: "white", delayAfter: 100},
-            {text: "\nCapabilities:\n", color: "white"},
-            {text: "- GRC: ", color: "white"}, {text: "ISMS, SOC 2, Privacy (GDPR), Vendor Risk, AI Governance\n", color: "blue"},
-            {text: "- Defensive: ", color: "white"}, {text: "SOC L1/L2, Incident Response, Digital Forensics\n", color: "blue"},
-            {text: "- Offensive: ", color: "white"}, {text: "Web Application Security, OSINT\n", color: "blue", delayAfter: 50},
+            {text: "cat projects.txt", color: "white", delayAfter: 100},
+            {text: "\nKey Projects & Capabilities:\n", color: "white"},
+            {text: "- ISMS & Cloud Security: ", color: "white"}, {text: "Built risk registers, SoAs, and mapped controls for ISO 27001 & SOC 2.\n", color: "blue"},
+            {text: "- Data Privacy & NIST: ", color: "white"}, {text: "Developed DPIAs and RoPAs for GDPR/DPDP; aligned frameworks to NIST CSF & HIPAA.\n", color: "blue"},
+            {text: "- Vendor Risk & PCI DSS: ", color: "white"}, {text: "Scoped cardholder environments and created vendor due-diligence models.\n", color: "blue"},
+            {text: "- AI Governance: ", color: "white"}, {text: "Drafted ISO 42001 risk assessments and responsible-use control documentation.\n", color: "blue"},
+            {text: "- SecOps & Offensive: ", color: "white"}, {text: "SOC L1/L2 monitoring, digital forensics, and web app vulnerability assessments.\n", color: "blue", delayAfter: 50},
             
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
             {text: "cat certs.txt", color: "white", delayAfter: 100},
@@ -87,7 +89,7 @@
 
         const contentDiv = document.querySelector('.content');
         let index = 0;
-        const typingSpeed = 15; // Increased typing speed
+        const typingSpeed = 15; 
         
         function typeWriter() {
             if(index >= content.length) {
