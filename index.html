@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YUVARAJ M - Portfolio</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 800px;
+            width: 100%;
+            margin-top: 0;
+        }
+        
+        .green { color: #00ff00; }
+        .red { color: #ff0000; }
+        .blue { color: #00aaff; }
+        .cursor { animation: blink 1s infinite; }
+        
+        a.blue {
+            text-decoration: none;
+            border-bottom: 1px solid #00aaff;
+            color: #00aaff !important;
+            cursor: pointer;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+
+    <script>
+        const content = [
+            // Command 1: whoami
+            {text: "root@yuvxraj_Hub:~# ", color: "green"},
+            {text: "whoami", color: "white", delayAfter: 200},
+            {text: "\nYuvaraj M | ", color: "white"},
+            {text: "GRC Analyst", color: "blue"},
+            {text: " | Risk, Compliance, InfoSec | Chennai, India\n", color: "white", delayAfter: 100},
+            
+            // Command 2: Profile
+            {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
+            {text: "cat profile.txt", color: "white", delayAfter: 200},
+            {text: "\n\nHello, Friend! I'm a ", color: "white"},
+            {text: "GRC Analyst", color: "blue"},
+            {text: " specialising in risk management, compliance, and cloud security.\n\nMy focus: ", color: "white"},
+            {text: "SOC 2, ISO 27001, GDPR, HIPAA, and NIST CSF.", color: "blue", delayAfter: 100},
+            {text: "\n\nWith an offensive security foundation, I assess how systems actually fail, ensuring controls are practical, not just checkboxes.\n", color: "white", delayAfter: 100},
+            
+            // Command 3: Consolidated Projects & Skills
+            {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
+            {text: "cat portfolio.txt", color: "white", delayAfter: 200},
+            {text: "\n\nKey Projects & Capabilities:\n", color: "white"},
+            {text: "- ISMS & Cloud Controls (ISO 27001, SOC 2, NIST CSF)\n", color: "blue"},
+            {text: "- Data Privacy & Governance (GDPR, DPDP, HIPAA)\n", color: "blue"},
+            {text: "- Vendor Risk, PCI DSS & AI Governance (ISO 42001)\n", color: "blue"},
+            {text: "- Offensive Security & SOC Operations (L1/L2)\n", color: "blue", delayAfter: 100},
+            
+            {text: "\nCertifications:\n", color: "white"},
+            {text: "CGRCP, ISO 27701/42001 Lead Auditor, CISA (Prep), THM SOC L1/L2\n", color: "blue", delayAfter: 100},
+            
+            // Command 4: Contact
+            {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
+            {text: "cat contact.txt", color: "white", delayAfter: 200},
+            
+            {text: "\n\nWanna Stay Connected?\n\n", color: "white"},
+            {text: "Twitter - ", color: "white"},
+            {link: "https://twitter.com/yuve_Tweets", text: "@yuve_Tweets", color: "blue"},
+            {text: "\n\nOooh, wait. Reach me at ", color: "white"},
+            {link: "mailto:yuvarajyeshwanth7574@gmail.com", text: "yuvarajyeshwanth7574@gmail.com", color: "blue", delayAfter: 100},
+            
+            {text: "\n\nWhere Compliance Meets Capability.\n", color: "red"},
+            
+            // Exit command
+            {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
+            {text: "exit", color: "white", delayAfter: 200}
+        ];
+
+        const contentDiv = document.querySelector('.content');
+        let index = 0;
+        // Adjusted typing speed for a medium pace
+        const typingSpeed = 40; 
+        
+        function typeWriter() {
+            if(index >= content.length) {
+                contentDiv.innerHTML += '<span class="cursor">_</span>';
+                return;
+            }
+            
+            const segment = content[index];
+            
+            if(segment.link) {
+                const link = document.createElement('a');
+                link.href = segment.link;
+                link.target = "_blank";
+                link.className = "blue";
+                
+                let charIndex = 0;
+                function addLinkChar() {
+                    if(charIndex < segment.text.length) {
+                        link.textContent += segment.text[charIndex];
+                        contentDiv.appendChild(link);
+                        charIndex++;
+                        setTimeout(addLinkChar, typingSpeed);
+                    } else {
+                        index++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+                addLinkChar();
+            } else {
+                const element = document.createElement('span');
+                if(segment.color) element.className = segment.color;
+                
+                let charIndex = 0;
+                function addChar() {
+                    if(charIndex < segment.text.length) {
+                        element.textContent += segment.text[charIndex];
+                        contentDiv.appendChild(element);
+                        charIndex++;
+                        setTimeout(addChar, typingSpeed);
+                    } else {
+                        index++;
+                        setTimeout(typeWriter, segment.delayAfter || 50);
+                    }
+                }
+                addChar();
+            }
+        }
+
+        // Start typing immediately
+        typeWriter();
+    </script>
+</body>
+</html>
