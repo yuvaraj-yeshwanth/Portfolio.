@@ -14,12 +14,14 @@
             min-height: 100vh;
             white-space: pre-wrap;
             overflow: hidden;
+            font-size: 18px; /* Increased font size */
         }
         
         .content {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             margin-top: 0;
+            line-height: 1.3;
         }
         
         .green { color: #00ff00; }
@@ -44,55 +46,48 @@
 
     <script>
         const content = [
-            // Command 1: whoami
             {text: "root@yuvxraj_Hub:~# ", color: "green"},
-            {text: "whoami", color: "white", delayAfter: 200},
+            {text: "whoami", color: "white", delayAfter: 100},
             {text: "\nYuvaraj M | ", color: "white"},
             {text: "GRC Analyst", color: "blue"},
-            {text: " | Risk, Compliance, InfoSec | Chennai, India\n", color: "white", delayAfter: 100},
+            {text: " | Risk, Compliance, InfoSec | Chennai, India\n", color: "white", delayAfter: 50},
             
-            // Command 2: Profile
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
-            {text: "cat profile.txt", color: "white", delayAfter: 200},
-            {text: "\n\nHello, Friend! I'm a ", color: "white"},
-            {text: "GRC Analyst", color: "blue"},
-            {text: " specialising in risk management, compliance, and cloud security.\n\nMy focus: ", color: "white"},
-            {text: "SOC 2, ISO 27001, GDPR, HIPAA, and NIST CSF.", color: "blue", delayAfter: 100},
-            {text: "\n\nWith an offensive security foundation, I assess how systems actually fail, ensuring controls are practical, not just checkboxes.\n", color: "white", delayAfter: 100},
+            {text: "cat profile.txt", color: "white", delayAfter: 100},
+            {text: "\nGRC Analyst specialising in risk management, compliance, and cloud controls.\nFocused on ", color: "white"},
+            {text: "SOC 2, ISO 27001, GDPR/DPDP, PCI DSS, HIPAA, and NIST CSF.", color: "blue", delayAfter: 50},
+            {text: "\nMy foundation in offensive security means I assess how systems actually fail, ensuring controls are practical.\n", color: "white", delayAfter: 50},
             
-            // Command 3: Consolidated Projects & Skills
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
-            {text: "cat portfolio.txt", color: "white", delayAfter: 200},
-            {text: "\n\nKey Projects & Capabilities:\n", color: "white"},
-            {text: "- ISMS & Cloud Controls (ISO 27001, SOC 2, NIST CSF)\n", color: "blue"},
-            {text: "- Data Privacy & Governance (GDPR, DPDP, HIPAA)\n", color: "blue"},
-            {text: "- Vendor Risk, PCI DSS & AI Governance (ISO 42001)\n", color: "blue"},
-            {text: "- Offensive Security & SOC Operations (L1/L2)\n", color: "blue", delayAfter: 100},
+            {text: "cat capabilities.txt", color: "white", delayAfter: 100},
+            {text: "\nCapabilities:\n", color: "white"},
+            {text: "- GRC: ", color: "white"}, {text: "ISMS, SOC 2, Privacy (GDPR), Vendor Risk, AI Governance\n", color: "blue"},
+            {text: "- Defensive: ", color: "white"}, {text: "SOC L1/L2, Incident Response, Digital Forensics\n", color: "blue"},
+            {text: "- Offensive: ", color: "white"}, {text: "Web Application Security, OSINT\n", color: "blue", delayAfter: 50},
             
-            {text: "\nCertifications:\n", color: "white"},
-            {text: "CGRCP, ISO 27701/42001 Lead Auditor, CISA (Prep), THM SOC L1/L2\n", color: "blue", delayAfter: 100},
-            
-            // Command 4: Contact
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
-            {text: "cat contact.txt", color: "white", delayAfter: 200},
+            {text: "cat certs.txt", color: "white", delayAfter: 100},
+            {text: "\nGRC & Risk:\n", color: "white"},
+            {text: "- CGRCP, ISO 27701 & 42001 Lead Auditor, CHRMP, CISA (Prep)\n", color: "blue"},
+            {text: "Security & Operations:\n", color: "white"},
+            {text: "- CLLMSP, CORA, CyberSec First Responder (CFR-410), THM SOC L1/L2\n", color: "blue", delayAfter: 50},
             
-            {text: "\n\nWanna Stay Connected?\n\n", color: "white"},
-            {text: "Twitter - ", color: "white"},
+            {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
+            {text: "cat contact.txt", color: "white", delayAfter: 100},
+            {text: "\nTwitter - ", color: "white"},
             {link: "https://twitter.com/yuve_Tweets", text: "@yuve_Tweets", color: "blue"},
-            {text: "\n\nOooh, wait. Reach me at ", color: "white"},
-            {link: "mailto:yuvarajyeshwanth7574@gmail.com", text: "yuvarajyeshwanth7574@gmail.com", color: "blue", delayAfter: 100},
+            {text: "\nEmail   - ", color: "white"},
+            {link: "mailto:yuvarajyeshwanth7574@gmail.com", text: "yuvarajyeshwanth7574@gmail.com", color: "blue", delayAfter: 50},
             
             {text: "\n\nWhere Compliance Meets Capability.\n", color: "red"},
             
-            // Exit command
             {text: "\nroot@yuvxraj_Hub:~# ", color: "green"},
-            {text: "exit", color: "white", delayAfter: 200}
+            {text: "exit", color: "white", delayAfter: 100}
         ];
 
         const contentDiv = document.querySelector('.content');
         let index = 0;
-        // Adjusted typing speed for a medium pace
-        const typingSpeed = 40; 
+        const typingSpeed = 15; // Increased typing speed
         
         function typeWriter() {
             if(index >= content.length) {
@@ -134,14 +129,13 @@
                         setTimeout(addChar, typingSpeed);
                     } else {
                         index++;
-                        setTimeout(typeWriter, segment.delayAfter || 50);
+                        setTimeout(typeWriter, segment.delayAfter || 30);
                     }
                 }
                 addChar();
             }
         }
 
-        // Start typing immediately
         typeWriter();
     </script>
 </body>
